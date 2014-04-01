@@ -43,7 +43,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'dilooapp',
     'south', 
-    'diloapp.templatetags',
+    'dilooapp.templatetags',
 )
 
 MIDDLEWARE_CLASSES = (
