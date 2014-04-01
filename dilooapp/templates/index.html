@@ -1,0 +1,83 @@
+{% load tags %}
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Dilo</title>
+	<style type="text/css">
+		.container{
+			display: block;
+		}
+		.right-bar{
+			display: inline-block;
+			position: absolute;
+
+		}
+		.things{
+			display: inline-block;
+			background-color: #F3F3F3;
+			position: relative;
+			float: right;
+		}
+		.reviews{
+			display: inline-block;
+			background-color: #F3F3F3;
+			position: relative;
+			float: right;
+			margin-right: 10px;
+		}
+		.thing{
+			margin-top: 10px;
+			border-style: solid;
+		}
+
+	</style>
+</head>
+<body>
+	<h1>Bienvenido a DILO </h1>
+	<span>
+		{% if user.is_active %}
+			{{user.username}}
+			<form action="login/logout" method="POST">
+				{% csrf_token %}
+				<input type="submit" value="salir"/>
+			</form>
+		{% else %}
+		<a href="/login">Login</a>
+		{% endif %}
+	</span>
+	<div class="container">
+		<div class="right-bar">
+			<ul type="none">
+				{% for category in categories %}
+				<li><a href="/category/{{category.id}}">{{category.name}}</a></li>
+				<p></p>
+				{% endfor %}
+			</ul>	
+		</div>
+
+		<div class="things">
+			{% for thing in things %}
+				<div class="thing">
+					<h2> {{thing.name}} <a href="/category/{{thing.category.id}}">*{{thing.category.name}}</a></h2>
+					<div class="desc">{{thing.description}}</div>
+					<p>{{thing.dateCreated}}</p>
+					<p>Propuesto por: <a href="/profile/{{thing.critic.user.username}}"> {{thing.critic.user.username}}</a></p>
+				</div>
+			{% endfor %}
+		</div>
+		<div class="reviews">
+			{% for review in reviews %}
+				<div class="thing">
+					<h2> Critica </h2>
+					<div class="desc">
+					{% autoescape off %}
+						{{review.content|topictag}}
+					{% endautoescape %}
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</body>
+</html>
