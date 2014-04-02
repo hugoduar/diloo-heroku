@@ -19,6 +19,3 @@ urlpatterns = patterns('',
     url(r'^login/logout$', 'dilooapp.views.logout'),
     url(r'^login/(?P<numero>\d+)$', 'dilooapp.views.show'),
 )
-urlpatterns += patterns('',
-        (r'^css/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
-)
