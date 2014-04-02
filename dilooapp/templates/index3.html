@@ -23,7 +23,7 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
  
  
  
@@ -40,7 +40,7 @@
       </button>
 	 
 	  
-      <a class="navbar-brand" href="#"><IMG SRC="lg.png" WIDTH=150 HEIGHT=50 ></a>
+      <a class="navbar-brand" href="#"><IMG SRC="{% static "img/lg.png" %}" WIDTH=150 HEIGHT=50 ></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -97,31 +97,31 @@
 <div class="list-group">
  
   <li><a href="#" class="list-group-item active">
-    <h4 class="list-group-item-heading"><IMG SRC="Juegos1.png" WIDTH=60 HEIGHT=60 ></h4>
+    <h4 class="list-group-item-heading"><IMG SRC="{% static "img/Juegos1.png" %}" WIDTH=60 HEIGHT=60 ></h4>
     
   </a></li>
    <li><a href="#" class="list-group-item active2">
-    <IMG SRC="Libros1.png" WIDTH=60 HEIGHT=60 >
+    <IMG SRC="{% static "img/Libros1.png" %}" WIDTH=60 HEIGHT=60 >
     
   </a></li>
    <li><a href="#" class="list-group-item active3">
-    <IMG SRC="Music1.png" WIDTH=60 HEIGHT=60 >
+    <IMG SRC="{% static "img/Music1.png" %}" WIDTH=60 HEIGHT=60 >
   </a></li>
   
   <li><a href="#" class="list-group-item active4">
-   <IMG SRC="Películas1.png" WIDTH=60 HEIGHT=60 >
+   <IMG SRC="{% static "img/Películas1.png" %}" WIDTH=60 HEIGHT=60 >
   </a></li>
  
   <li><a href="#" class="list-group-item active5">
-    <IMG SRC="Ropa1.png" WIDTH=60 HEIGHT=60 >
+    <IMG SRC="{% static "img/Ropa1.png" %}" WIDTH=60 HEIGHT=60 >
   </a></li>
   
   <li><a href="#" class="list-group-item active6">
-    <IMG SRC="Tech1.png" WIDTH=60 HEIGHT=60 >
+    <IMG SRC="{% static "img/Tech1.png" %}" WIDTH=60 HEIGHT=60 >
   </a></li>
   
    <li><a href="#" class="list-group-item active7">
-    <IMG SRC="Universidades1.png" WIDTH=60 HEIGHT=60 >
+    <IMG SRC="{% static "img/Universidades1.png" %}" WIDTH=60 HEIGHT=60 >
   </a></li>
   
 </div>
