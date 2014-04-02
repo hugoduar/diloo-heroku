@@ -4,7 +4,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 
-from diloo import settings
+import settings
 
 urlpatterns = patterns('',
     # Examples:
