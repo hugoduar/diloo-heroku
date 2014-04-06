@@ -18,7 +18,7 @@ def home(request):
 	categories = Category.objects.all()
 	things = Thing.objects.all().order_by('-dateCreated')
 	reviews = Review.objects.all()
-	return render_to_response("index3.html", {'categories': categories, 'things': things, 'reviews': reviews, 'user': request.user}, context)
+	return render_to_response("index.html", {'categories': categories, 'things': things, 'reviews': reviews, 'user': request.user}, context)
 
 
 def category(request, id_category):
