@@ -93,11 +93,6 @@ body {
     padding-left: 250px;
     transition: all 0.4s ease 0s;
 }
-#btn_sidebar{
-	/*margin-left: 10px;
-    position: absolute;
-    margin-top: 10px;*/
-}
 #sidebar-wrapper {
 	display: none;
     margin-left: -250px;
