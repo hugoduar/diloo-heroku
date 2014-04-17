@@ -26,14 +26,14 @@
         <div class="container-fluid">
 
             <div class="navbar-header">
-            	<button id="btn_sidebar" type="button" class="btn btn-default navbar-btn navbar-nav" data-toggle="collapse">
-                        <span class="glyphicon glyphicon-home"></span>Categorías
-		            	<span class="glyphicon glyphicon-plus"></span>
+                <button id="btn_sidebar" type="button" class="btn btn-default navbar-btn navbar-nav" data-toggle="collapse">
+                    <span class="glyphicon glyphicon-home"></span>Categorías
+                    <span class="glyphicon glyphicon-plus"></span>
                 </button>
                 {% block logo %}
                 <a class="nav navbar-nav" href="#">
-                        <IMG id="logo" SRC="http://diloocdn.appspot.com/img/logg.png" WIDTH=150 HEIGHT=50>
-                    </a>
+                    <IMG id="logo" SRC="http://diloocdn.appspot.com/img/logg.png" WIDTH=150 HEIGHT=50>
+                </a>
                 {% endblock %}
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -54,7 +54,7 @@
     {% endblock %} {% block content %}
     <!-- Sidebar -->
     <div id="category-bar">
-        
+
         <div id="sidebar-wrapper">
 
             <ul class="sidebar-nav">
@@ -172,21 +172,23 @@
                 </div>
             </div>
             <!--/.feed -->
-        </div></div>
+        </div>
+    </div>
     <!-- /.container -->
     {% endblock %}
     <script type="text/javascript">
+    $(function() {
+        $('#btn_sidebar').hover(function() {
+            $('#sidebar-wrapper').slideDown('slow');
+        });
 
-    $('#btn_sidebar').hover(function() {
-        $('#sidebar-wrapper').slideDown('slow');
-    });
+        $('#sidebar-wrapper').mouseleave(function() {
+            $('#sidebar-wrapper').slideUp('slow');
+        });
 
-    $('#sidebar-wrapper').mouseleave(function() {
-        $('#sidebar-wrapper').slideUp('slow');
-    });
-
-    $('.container').mouseenter(function() {
-        $('#sidebar-wrapper').slideUp('slow');
+        $('.container').mouseenter(function() {
+            $('#sidebar-wrapper').slideUp('slow');
+        });
     });
     </script>
 </body>
