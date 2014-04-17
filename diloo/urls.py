@@ -20,7 +20,7 @@ urlpatterns = patterns('',
     url(r'^login/enter$', 'dilooapp.views.login'),
     url(r'^login/logout$', 'dilooapp.views.logout'),
     url(r'^login/(?P<numero>\d+)$', 'dilooapp.views.show'),
-    url(r'^media/(?P<path>.*)$', 'django.views.static.serve', 
-        {'document_root': settings.MEDIA_ROOT})
+    # url(r'^media/(?P<path>.*)$', 'django.views.static.serve', 
+    #     {'document_root': settings.MEDIA_ROOT})
 )
 #urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
