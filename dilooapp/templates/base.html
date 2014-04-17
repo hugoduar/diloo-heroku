@@ -49,7 +49,7 @@
     </nav>
     {% endblock %} {% block content %}
     <!-- Sidebar -->
-    <button type="button" id="btn_sidebar" class="btn btn-default navbar-right"><span class="glyphicon glyphicon-home"></span> Categorías <span class="glyphicon glyphicon-plus"></span></button>
+    <button type="button" id="btn_sidebar" class="btn btn-default"><span class="glyphicon glyphicon-home"></span> Categorías <span class="glyphicon glyphicon-plus"></span></button>
     <div id="sidebar-wrapper">
     	
         <ul class="sidebar-nav">
@@ -193,6 +193,7 @@
     		// 	$('#sidebar-wrapper').removeClass("dispa");
     		// });
       //  	});
+	
 		$('#btn_sidebar').mouseenter(function() {
         	$('#sidebar-wrapper').slideDown('slow');
 	    });
