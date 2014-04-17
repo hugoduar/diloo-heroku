@@ -8,7 +8,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+# # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 import dj_database_url
@@ -64,14 +64,14 @@ WSGI_APPLICATION = 'diloo.wsgi.application'
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     "ENGINE": "django.db.backends.postgresql_psycopg2",
-    #     "NAME": "diloodb",
-    #     "USER": "root",
-    #     "PASSWORD": "n0m3l0",
-    #     "HOST": "localhost",
-    #     "PORT": "5432",
-    # }
+    'default': {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "diloodb",
+        "USER": "root",
+        "PASSWORD": "n0m3l0",
+        "HOST": "localhost",
+        "PORT": "5432",
+    }
 }
 DATABASES['default'] =  dj_database_url.config()
 
@@ -99,7 +99,9 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
     os.path.join(BASE_DIR, 'dilooapp/static'),
 )
-
+TEMPLATE_DIRS = {
+     os.path.join(BASE_DIR, 'dilooapp/templates'),
+}
 # try:
 #     from local_settings import * 
 # except ImportError:
