@@ -64,14 +64,14 @@ WSGI_APPLICATION = 'diloo.wsgi.application'
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     "ENGINE": "django.db.backends.postgresql_psycopg2",
-    #     "NAME": "diloodb",
-    #     "USER": "root",
-    #     "PASSWORD": "n0m3l0",
-    #     "HOST": "localhost",
-    #     "PORT": "5432",
-    # }
+    'default': {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "diloodb",
+        "USER": "root",
+        "PASSWORD": "n0m3l0",
+        "HOST": "localhost",
+        "PORT": "5432",
+    }
 }
 DATABASES['default'] =  dj_database_url.config()
 
