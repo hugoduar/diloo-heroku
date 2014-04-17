@@ -1,12 +1,10 @@
 body {
     padding-top: 49px;
+    padding-bottom: 49px;
 }
-.input-rounded {
-    border-radius: 20px;
-    background-image: linear-gradient(to bottom, #fff 0, #f8f8f8 100%);
-}
+
 .navbar-diloo {
-    background-color: #f8f8f8;
+    background-color: #529ecc;
 }
 .navbar-diloo .navbar-brand {
     color: #777;
@@ -66,20 +64,20 @@ body {
         background-color: transparent;
     }
 }
+.navbar-form .form-control {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+    color: beige;
+    background-color: beige;
+    background: #4989AF;
+    border-color: #529ecc;
+}
 .navbar-diloo .navbar-link {
     color: #777;
 }
 .navbar-diloo .navbar-link:hover {
     color: #333;
-}
-.navbar-diloo {
-    background-image: -webkit-linear-gradient(to bottom, rgba(189, 111, 50, 0.46) 0%, rgba(189, 111, 50, 0.58) 100%);
-    background-image: linear-gradient(to bottom, rgba(189, 111, 50, 0.46) 0%, rgba(189, 111, 50, 0.58) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff8f8f8', GradientType=0);
-    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
-    background-repeat: repeat-x;
-    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 5px rgba(0, 0, 0, .075);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 5px rgba(0, 0, 0, .075);
 }
 .navbar-diloo .navbar-nav > .active > a {
     background-image: -webkit-linear-gradient(top, #ebebeb 0%, #f3f3f3 100%);
@@ -93,31 +91,19 @@ body {
     padding-left: 250px;
     transition: all 0.4s ease 0s;
 }
-#category-bar{
+#sidebar-wrapper {
+    display: none;
     margin-left: -250px;
     left: 250px;
-    width: 280px;
+    width: 250px;
     background: #fff;
     position: fixed;
     height: 100%;
     overflow-y: auto;
     z-index: 1000;
 }
-#sidebar-wrapper {
-	display: none;
-    margin-left: -250px;
-    left: 250px;
-    width: 280px;
-    background: #fff;
-    position: absolute;
-    height: 100%;
-    overflow-y: auto;
-    z-index: 1000;
-}
 #page-content-wrapper {
     width: 100%;
-
-
 }
 .sidebar-nav {
     position: absolute;
@@ -234,8 +220,8 @@ body {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff428bca', endColorstr='#ff3278b3', GradientType=0);
     background-repeat: repeat-x;
 }
-.feed{
-	position: relative;
+.feed {
+    position: relative;
 }
 .post {
     background-color: #fff;
@@ -256,18 +242,41 @@ body {
     font-size: 10pt;
     background-color: #F5F0F0;
 }
-.pelicula{
-	background-image: -webkit-linear-gradient(to bottom, #E76563 0%, #E76563 100%);
+.pelicula {
+    background-image: -webkit-linear-gradient(to bottom, #E76563 0%, #E76563 100%);
     background-image: linear-gradient(to bottom, #E76563 0%, #E76563 100%);
-	color: #fff;
+    color: #fff;
 }
-
-.musica{
-	background-image: -webkit-linear-gradient(top, #428bca 0%, #3278b3 100%);
+.musica {
+    background-image: -webkit-linear-gradient(top, #428bca 0%, #3278b3 100%);
     background-image: linear-gradient(to bottom, #428bca 0%, #3278b3 100%);
-	color: #fff;
+    color: #fff;
+}
+.btn-diloo {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    background: rgba(29, 29, 29, 0.34);
+    color: rgba(255, 255, 255, 1);
+}
+.input-rounded {
+    border-radius: 20px;
 }
 
-
-
-
+#feed-privado{
+    display: none;
+}
