@@ -1,0 +1,188 @@
+{% load staticfiles %}
+
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Dilo-o{% endblock %}</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    {% block navbar %}
+    <nav class="navbar navbar-diloo navbar-fixed-top nav-bar-diloo" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                {% block logo %}
+                <img src="http://diloocdn.appspot.com/img/logg.png" height="50" alt="">{% endblock %}
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <!-- <ul class="nav navbar-nav">
+						<li class="active"><a href="#">Link</a></li>
+					</ul> -->
+                <form class="navbar-form navbar-left" role="search" action="/search" method="GET">
+                    <div class="form-group">
+                        <input type="text" class="form-control input-rounded" placeholder="Buscar" size="100"></input>
+                    </div>
+                    <button type="submit" class="btn btn-default input-rounded">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </form>
+                {% block user%} {% if user.is_active %} {% else %}
+                <button type="button" class="btn btn-default navbar-btn navbar-right">Entrar</button>
+                {% endif %} {% endblock %}
+            </div>
+        </div>
+    </nav>
+    {% endblock %} {% block content %}
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li>
+                <a href="#" class="list-group-item-diloo sidebar-element active-diloo-1">
+                    <IMG SRC="http://diloocdn.appspot.com/img/Juegos1.png" HEIGHT=40>Juegos</a>
+            </li>
+            <li>
+                <a href="#" class="list-group-item-diloo sidebar-element active-diloo-2">
+                    <IMG SRC="http://diloocdn.appspot.com/img/Libros1.png" HEIGHT=40>Libros</a>
+            </li>
+            <li>
+                <a href="#" class="list-group-item-diloo sidebar-element active-diloo-1">
+                    <IMG SRC="http://diloocdn.appspot.com/img/Music1.png" HEIGHT=40>Música</a>
+            </li>
+
+            <li>
+                <a href="#" class="list-group-item-diloo sidebar-element active-diloo-3">
+                    <IMG SRC="http://diloocdn.appspot.com/img/Peliculas.png" HEIGHT=40>Películas</a>
+            </li>
+
+            <li>
+                <a href="#" class="list-group-item-diloo sidebar-element active-diloo-2">
+                    <IMG SRC="http://diloocdn.appspot.com/img/Ropa1.png" HEIGHT=40>Ropa</a>
+            </li>
+
+            <li>
+                <a href="#" class="list-group-item-diloo sidebar-element active-diloo-1">
+                    <IMG SRC="http://diloocdn.appspot.com/img/Tech1.png" HEIGHT=40>Tecnología</a>
+            </li>
+
+            <li>
+                <a href="#" class="list-group-item-diloo sidebar-element active-diloo-3">
+                    <IMG SRC="http://diloocdn.appspot.com/img/Universidades1.png" HEIGHT=40>Universidades</a>
+            </li>
+            <li>
+                <a href="#" class="list-group-item-diloo sidebar-element active-diloo-3">
+                    <IMG SRC="http://diloocdn.appspot.com/img/Universidades1.png" HEIGHT=40>Universidades</a>
+            </li>
+            <li>
+                <a href="#" class="list-group-item-diloo sidebar-element active-diloo-3">
+                    <IMG SRC="http://diloocdn.appspot.com/img/Universidades1.png" HEIGHT=40>Universidades</a>
+            </li>
+            <li>
+                <a href="#" class="list-group-item-diloo sidebar-element active-diloo-3">
+                    <IMG SRC="http://diloocdn.appspot.com/img/Universidades1.png" HEIGHT=40>Universidades</a>
+            </li>
+            <li>
+                <a href="#" class="list-group-item-diloo sidebar-element active-diloo-3">
+                    <IMG SRC="http://diloocdn.appspot.com/img/Universidades1.png" HEIGHT=40>Universidades</a>
+            </li>
+        </ul>
+    </div>
+    <div class="container">
+        <div id="wrapper">
+            <div class="row feed">
+                <div class="col-sm-8 col-md-6 feed">
+                    <h1>¿Qué ocurre?</h1>
+                    <div class="media post">
+                        <a class="pull-left" href="#">
+                            <img class="media-object img-rounded" src="http://coatl.cecyt9.ipn.mx/alumnos/imagenes/2012090338.jpg" width="50" height="50">
+                        </a>
+                        <div class="media-body">
+                            <h4 class="media-heading">El mundo es puto</h4>
+                            El mundo es una mierda.
+                        </div>
+                    </div>
+                    <div class="media post musica">
+                    	<a class="pull-left" href="#">
+                            <img class="media-object img-rounded" src="http://diloocdn.appspot.com/img/Music1.png" width="50" height="50">
+                        </a>
+                        <div class="media-body">
+                            <h4 class="media-heading">Set de Erick Prydz</h4>
+                            <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/141995597&amp;auto_play=false&amp;hide_related=false&amp;visual=true"></iframe>
+               
+                        </div>
+                    </div>
+                    <div class="media post pelicula">
+                        <a class="pull-left" href="#">
+                            <img class="media-object img-rounded" src="http://diloocdn.appspot.com/img/Peliculas.png" width="50" height="50">
+                        </a>
+                        <div class="media-body">
+                            <h4 class="media-heading">The Wolf of Wall Street Official Trailer </h4>
+                            <iframe width="350" height="197" src="//www.youtube.com/embed/iszwuX1AK6A" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="media post">
+                        <a class="pull-left" href="#">
+                            <img class="media-object img-rounded" src="http://coatl.cecyt9.ipn.mx/alumnos/imagenes/2012090338.jpg" width="50" height="50">
+                        </a>
+                        <div class="media-body">
+                            <h4 class="media-heading">Prueba</h4>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, incidunt accusantium eos iure officia quibusdam ipsam temporibus dolorem ducimus enim sint ab inventore aspernatur dolorum repellendus molestiae dolore ullam maiores.
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8 col-md-6 feed">
+                	<h1>Personalizado</h1>
+                	<div class="media post">
+                        <a class="pull-left" href="#">
+                            <img class="media-object img-rounded" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/t1.0-1/c49.0.200.200/p200x200/75946_463610100432533_569204265_n.jpg" width="50" height="50">
+                        </a>
+                        <div class="media-body">
+                            <h4 class="media-heading">Crítica a la vida</h4>
+                            Sigo cagando.
+                        </div>
+                    </div>
+                    
+                    <div class="media post">
+                        <a class="pull-left" href="#">
+                            <img class="media-object img-rounded" src="https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-frc1/t1.0-9/1620675_645589062161127_8152828306261457022_n.jpg" width="50" height="50">
+                        </a>
+                        <div class="media-body">
+                            <h4 class="media-heading">Pinche chicharito...</h4>
+                            ... ya no eres el de antes :(
+                        </div>
+                    </div>
+                    
+                    <div class="media post">
+                        <a class="pull-left" href="#">
+                            <img class="media-object img-rounded" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/t1.0-1/c49.0.200.200/p200x200/75946_463610100432533_569204265_n.jpg" width="50" height="50">
+                        </a>
+                        <div class="media-body">
+                            <h4 class="media-heading">Crítica a la vida</h4>
+                            Estoy cagando.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /.container -->
+    {% endblock %}
+</body>
+
+</html>

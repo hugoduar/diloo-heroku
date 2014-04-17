@@ -10,9 +10,12 @@ from django.shortcuts import redirect
 
 
 from dilooapp.models import Category, Thing, Review
-
+from dilooapp.forms import UserForm
 # Create your views here.
 
+def base(request):
+	user = request.user
+	return render_to_response("base.html", {'user': user})
 def home(request):
 	context = RequestContext(request)
 	categories = Category.objects.all()
@@ -52,13 +55,28 @@ def login(request):
 	return render_to_response("login_page.html", {'ya':paso, 'exist': exists, 'user': user}, context)
 
 def show(request, numero):
-	return HttpResponse("Tu numero es:" +numero)
+	n = request.GET['p']
+	return HttpResponse("Tu numero es:" +numero + n)
 
 def logout(request):
 	context = RequestContext(request)
 	auth_logout(request)
 	return HttpResponseRedirect('/login/')
 
-def css(request, path):
-	auth_logout(request)
-	return render_to_response('/css/'+path)
+def register(request):
+	context = RequestContext(request)
+	error = True
+	if request.method == 'POST':
+		form = UserForm(data=request.POST)
+		if form.is_valid():
+			form.save()
+			error = False
+	else:
+		form = UserForm()
+	
+	return render_to_response("registrar.html", {'form': form, 'error': error}, context)
+
+
+
+
+

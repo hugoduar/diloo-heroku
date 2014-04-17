@@ -6,8 +6,9 @@ from django.contrib.auth.models import User
 class Critic(models.Model):
 	user = models.OneToOneField(User)
 	display_name = models.CharField(max_length=50)
-	readers = models.IntegerField()
+	readers = models.ManyToManyField("self", blank=True)
 	to_read = models.ManyToManyField("self", blank=True)
+	image = models.ImageField(upload_to = 'media/images/profile/', default = 'media/images/profile/no-img.jpg')
 	def __unicode__(self):
 		return self.user.username
 
