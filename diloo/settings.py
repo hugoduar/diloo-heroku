@@ -100,7 +100,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'dilooapp/static'),
 )
 
-try:
-    from local_settings import * 
-except ImportError:
-    pass
+# try:
+#     from local_settings import * 
+# except ImportError:
+#     pass
