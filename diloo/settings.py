@@ -8,7 +8,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 
-# # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 import dj_database_url
@@ -23,9 +23,9 @@ import dj_database_url
 SECRET_KEY = '4tai=ja=n=6^lqd4+0m=7$*u$+*ci#2t#tnxsy8&8-7hq6(ofn'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-TEMPLATE_DEBUG = False
+TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -64,14 +64,14 @@ WSGI_APPLICATION = 'diloo.wsgi.application'
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "diloodb",
-        "USER": "root",
-        "PASSWORD": "n0m3l0",
-        "HOST": "localhost",
-        "PORT": "5432",
-    }
+    # 'default': {
+    #     "ENGINE": "django.db.backends.postgresql_psycopg2",
+    #     "NAME": "diloodb",
+    #     "USER": "root",
+    #     "PASSWORD": "n0m3l0",
+    #     "HOST": "localhost",
+    #     "PORT": "5432",
+    # }
 }
 DATABASES['default'] =  dj_database_url.config()
 
@@ -96,13 +96,9 @@ STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    'dilooapp/static',
+    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'dilooapp/static'),
 )
-TEMPLATE_DIRS = {
-	'dilooapp/templates',
-}
-
-
 
 # try:
 #     from local_settings import * 
