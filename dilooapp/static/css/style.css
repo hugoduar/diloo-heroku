@@ -93,6 +93,16 @@ body {
     padding-left: 250px;
     transition: all 0.4s ease 0s;
 }
+#category-bar{
+    margin-left: -250px;
+    left: 250px;
+    width: 280px;
+    background: #fff;
+    position: fixed;
+    height: 100%;
+    overflow-y: auto;
+    z-index: 1000;
+}
 #sidebar-wrapper {
 	display: none;
     margin-left: -250px;
@@ -108,7 +118,7 @@ body {
 #page-content-wrapper {
     width: 100%;
 
-    
+
 }
 .sidebar-nav {
     position: absolute;
@@ -248,8 +258,8 @@ body {
     background-color: #F5F0F0;
 }
 .pelicula{
-	background-image: -webkit-linear-gradient(to bottom, #E76563 0%, #F77D2B 100%);
-    background-image: linear-gradient(to bottom, #E76563 0%, #F77D2B 100%);
+	background-image: -webkit-linear-gradient(to bottom, #E76563 0%, #E76563 100%);
+    background-image: linear-gradient(to bottom, #E76563 0%, #E76563 100%);
 	color: #fff;
 }
 

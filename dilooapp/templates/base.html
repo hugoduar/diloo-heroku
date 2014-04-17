@@ -30,13 +30,9 @@
                         <span class="glyphicon glyphicon-home"></span>Categorías
 		            	<span class="glyphicon glyphicon-plus"></span>
                 </button>
-            	<!-- <button type="button" id="btn_sidebar" class="btn btn-default navbar-btn navbar-left">
-		            <span class="glyphicon glyphicon-home"></span>Categorías
-		            <span class="glyphicon glyphicon-plus"></span>
-		        </button> -->
                 {% block logo %}
                 <a class="nav navbar-nav" href="#">
-                        <IMG SRC="http://diloocdn.appspot.com/img/logg.png" WIDTH=150 HEIGHT=50>
+                        <IMG id="logo" SRC="http://diloocdn.appspot.com/img/logg.png" WIDTH=150 HEIGHT=50>
                     </a>
                 {% endblock %}
             </div>
@@ -185,8 +181,12 @@
         $('#sidebar-wrapper').slideDown('slow');
     });
 
-    $('#sidebar-wrapper').mouseleave(function() {
+    $('#category-bar').mouseleave(function() {
         $('#sidebar-wrapper').slideUp('slow');
+    });
+
+    $('.container').mouseenter(function() {
+        $('#sidebar-wrapper').hide('slow');
     });
     </script>
 </body>
