@@ -248,8 +248,8 @@ body {
     background-color: #F5F0F0;
 }
 .pelicula{
-	background-image: -webkit-linear-gradient(to bottom, #F77D2B 0%, #F77D2B 100%);
-    background-image: linear-gradient(to bottom, #F77D2B 0%, #F77D2B 100%);
+	background-image: -webkit-linear-gradient(to bottom, #E76563 0%, #F77D2B 100%);
+    background-image: linear-gradient(to bottom, #E76563 0%, #F77D2B 100%);
 	color: #fff;
 }
 
