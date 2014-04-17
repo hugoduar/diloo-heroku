@@ -92,14 +92,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
-PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
-STATIC_ROOT= os.path.join(PROJECT_DIR,'staticfiles')
-STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT,'static'),
-    os.path.join(PROJECT_ROOT, 'dilooapp/static'),
-)
 
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'dilooapp/static'),
+)
 TEMPLATE_DIRS = {
      os.path.join(BASE_DIR, 'dilooapp/templates'),
 }
