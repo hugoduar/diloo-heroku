@@ -23,9 +23,9 @@ import dj_database_url
 SECRET_KEY = '4tai=ja=n=6^lqd4+0m=7$*u$+*ci#2t#tnxsy8&8-7hq6(ofn'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
