@@ -72,15 +72,13 @@ def logout(request):
     return HttpResponseRedirect('/')
 
 
-# def register(request):
-# 	context = RequestContext(request)
-#     error = True
-#     if request.method == 'POST':
-#     	form = UserForm(data=request.POST)
-#         if form.is_valid():
-#             form.save()
-#             error = False
-#     else:
-#         form = UserForm()
+def register(request):
+	context = RequestContext(request)
+    if request.method == 'POST':
+    	form = UserForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = UserForm()
 
-#     return render_to_response("registrar.html", {'form': form, 'error': error}, context)
+    return render_to_response("registrar.html", {'form': form}, context)

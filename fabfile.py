@@ -9,5 +9,5 @@ def deploy():
 	local('git commit -m "%s"' % comment)
 	local('heroku maintenance:on')
 	local('git push heroku master')
-	local('heroku run python manage.py migrate app --fake')
+	local('heroku run python manage.py migrate app')
 	local('heroku maintenance:off')

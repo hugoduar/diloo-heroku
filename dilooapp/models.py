@@ -8,8 +8,7 @@ class Critic(models.Model):
     display_name = models.CharField(max_length=50)
     readers = models.ManyToManyField("self", blank=True)
     to_read = models.ManyToManyField("self", blank=True)
-    image = models.ImageField(
-        upload_to='media/images/profile/', default='media/images/profile/no-img.jpg')
+    image = image = models.CharField(max_length=300)
 
     def __unicode__(self):
         return self.user.username
@@ -17,7 +16,8 @@ class Critic(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=50)
-
+    image = models.CharField(max_length=300)
+    
     def __unicode__(self):
         return self.name
 

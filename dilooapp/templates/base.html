@@ -37,12 +37,11 @@
                 </button>
                 {% block logo %}
                 <a class="nav navbar-nav" href="#">
-                    <img id="logo" class="navbar-brand" SRC="{% static "img/logo.png"%}"/>
+                    <img id="logo" class="navbar-brand" src="{% static "img/logo.png"%}"/>
                 </a>
                 {% endblock %}
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <button id="switch" type="button" class="btn-diloo navbar-btn" data-toggle="modal">Switch</button>
                 <form class="navbar-form navbar-left" role="search" action="/search" method="GET">
                     <div class="form-group">
                         <input type="text" class="form-control input-rounded" placeholder="Buscar" size="60"></input>
@@ -53,21 +52,25 @@
 
                 </form>
 
-                {% block user%} {% if user.is_active %} 
-					<ul class="nav navbar-nav navbar-right">
-				      <li class="dropdown">
-				      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>
-				     	<ul class="dropdown-menu">
-				            <li><a href="#">Perfil</a></li>
-				            <li><a href="#">Configuración</a></li>
-				            <li class="divider"></li>
-				            <li><a onclick="logOut()" href="/logout">Salir</a></li>
-				          </ul>
-				      </li>
-			      </ul>
-			      <a href="#">
-			      	
-				   	<img style="float:right" src="http://coatl.cecyt9.ipn.mx/alumnos/imagenes/2012090338.jpg" class="img-circle" width="50" height="50"></a>
+                {% block user%} {% if user.is_active %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Perfil</a>
+                            </li>
+                            <li><a href="#">Configuración</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a onclick="logOut()" href="/logout">Salir</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <a href="#">
+
+                    <img style="float:right" src="#" class="img-circle" width="50" height="50">
+                </a>
                 {% else %}
                 <button type="button" class="btn-diloo navbar-btn navbar-right" data-toggle="modal" data-target="#entrarModal">Entrar</button>
                 {% endif %} {% endblock %}
@@ -82,179 +85,76 @@
     <div id="sidebar-wrapper">
 
         <ul class="sidebar-nav">
-            <li>
-                <a href="#" class="list-group-item-diloo sidebar-element active-diloo-1">
-                    <IMG SRC="http://diloocdn.appspot.com/img/Juegos1.png" HEIGHT=40/>Juegos</a>
-            </li>
-            <li>
-                <a href="#" class="list-group-item-diloo sidebar-element active-diloo-2">
-                    <IMG SRC="http://diloocdn.appspot.com/img/Libros1.png" HEIGHT=40/>Libros</a>
-            </li>
-            <li>
-                <a href="#" class="list-group-item-diloo sidebar-element active-diloo-1">
-                    <IMG SRC="http://diloocdn.appspot.com/img/Music1.png" HEIGHT=40/>Música</a>
-            </li>
-
-            <li>
-                <a href="#" class="list-group-item-diloo sidebar-element active-diloo-3">
-                    <IMG SRC="http://diloocdn.appspot.com/img/Peliculas.png" HEIGHT=40/>Películas</a>
-            </li>
-
-            <li>
-                <a href="#" class="list-group-item-diloo sidebar-element active-diloo-2">
-                    <IMG SRC="http://diloocdn.appspot.com/img/Ropa1.png" HEIGHT=40/>Ropa</a>
-            </li>
-
-            <li>
-                <a href="#" class="list-group-item-diloo sidebar-element active-diloo-1">
-                    <IMG SRC="http://diloocdn.appspot.com/img/Tech1.png" HEIGHT=40/>Tecnología</a>
-            </li>
-
-            <li>
-                <a href="#" class="list-group-item-diloo sidebar-element active-diloo-3">
-                    <IMG SRC="http://diloocdn.appspot.com/img/Universidades1.png" HEIGHT=40/>Universidades</a>
-            </li>
+            {% block sidebar %} {% endblock %}
         </ul>
     </div>
 
     <!-- y ESTO ===============================================-->
     <div class="container">
         <div class="row">
-            <div id="feed-publico" class="col-sm-8 col-md-8 col-md-offset-1 feed">
-                <h1>¿Qué ocurre?</h1>
-                <div class="media post">
-                    <a class="pull-left" href="#">
-                        <img class="media-object img-rounded" src="http://coatl.cecyt9.ipn.mx/alumnos/imagenes/2012090338.jpg" width="50" height="50">
-                    </a>
-                    <div class="media-body">
-                        <h4 class="media-heading">El mundo es puto</h4>
-                        El mundo es una mierda.
-                    </div>
-                </div>
-                <!-- <div class="media post musica">
-                    <a class="pull-left" href="#">
-                        <img class="media-object img-rounded" src="http://diloocdn.appspot.com/img/Music1.png" width="50" height="50">
-                    </a>
-                    <div class="media-body">
-                        <h4 class="media-heading">Set de Erick Prydz</h4>
-                        <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/141995597&amp;auto_play=false&amp;hide_related=false&amp;visual=true"></iframe>
-
-                    </div>
-                </div> -->
-                <!-- <div class="media post pelicula">
-                    <a class="pull-left" href="#">
-                        <img class="media-object img-rounded" src="http://diloocdn.appspot.com/img/Peliculas.png" width="50" height="50">
-                    </a>
-                    <div class="media-body">
-                        <h4 class="media-heading">The Wolf of Wall Street Official Trailer</h4>
-                        <style>
-                        .embed-container {
-                            position: relative;
-                            padding-bottom: 56.25%;
-                            padding-top: 30px;
-                            height: 0;
-                            overflow: hidden;
-                            max-width: 100%;
-                            height: auto;
-                        }
-                        .embed-container iframe, .embed-container object, .embed-container embed {
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 100%;
-                        }
-                        </style>
-                        <div class='embed-container'>
-                            <iframe src="//www.youtube.com/embed/iszwuX1AK6A" frameborder="0" allowfullscreen></iframe>
+            {% block feed %} {% endblock %}
+			{% if user.is_active %}{% else %}
+            <div class="modal fade" id="entrarModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="entrarLaber">Ingresar a Diloo</h4>
                         </div>
-                        </iframe>
-                    </div>
-                </div>
-                <div class="media post">
-                    <a class="pull-left" href="#">
-                        <img class="media-object img-rounded" src="http://coatl.cecyt9.ipn.mx/alumnos/imagenes/2012090338.jpg" width="50" height="50">
-                    </a>
-                    <div class="media-body">
-                        <h4 class="media-heading">Prueba</h4>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, incidunt accusantium eos iure officia quibusdam ipsam temporibus dolorem ducimus enim sint ab inventore aspernatur dolorum repellendus molestiae dolore ullam maiores.
+                        <div class="modal-body">
+                            <form role="form" id="login_form" action="login" method="POST">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <input class="form-control" name="username" id="username" placeholder="Nombre de usuario">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Entrar</button> 
+                                <a href="#registrarModal" data-toggle="modal" data-target="#registrarModal" id="triggerRegistrar">Regístrate</a>
+                            </form>
 
-                    </div>
-                </div> -->
-            </div>
-            <!-- <div id="feed-privado" class="col-sm-8 col-md-6 feed">
-                <h1>Personalizado</h1>
-                <div class="media post">
-                    <a class="pull-left" href="#">
-                        <img class="media-object img-rounded" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/t1.0-1/c49.0.200.200/p200x200/75946_463610100432533_569204265_n.jpg" width="50" height="50">
-                    </a>
-                    <div class="media-body">
-                        <h4 class="media-heading">Crítica a la vida</h4>
-                        Sigo cagando.
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#">No recuerdo mi contraseña</a>
+                        </div>
                     </div>
                 </div>
-
-                <div class="media post">
-                    <a class="pull-left" href="#">
-                        <img class="media-object img-rounded" src="https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-frc1/t1.0-9/1620675_645589062161127_8152828306261457022_n.jpg" width="50" height="50">
-                    </a>
-                    <div class="media-body">
-                        <h4 class="media-heading">Pinche chicharito...</h4>
-                        ... ya no eres el de antes :(
+            </div> 
+            <!-- /#entrarModal -->
+            <div class="modal fade" id="registrarModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="entrarLaber">Registro</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form role="form" id="register_form" action="register" method="POST">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <input class="form-control" name="username" id="username" placeholder="Nombre de usuario">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" name="r_password" id="password" placeholder="Repetir contraseña">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Entrar</button> 
+                            </form>
+                        </div>
                     </div>
                 </div>
-
-                <div class="media post">
-                    <a class="pull-left" href="#">
-                        <img class="media-object img-rounded" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/t1.0-1/c49.0.200.200/p200x200/75946_463610100432533_569204265_n.jpg" width="50" height="50">
-                    </a>
-                    <div class="media-body">
-                        <h4 class="media-heading">Crítica a la vida</h4>
-                        Estoy cagando.
-                    </div>
-                </div>
-            </div> -->
+            </div> 
+            <!-- /#registrarModal -->
+            {% endif %}
         </div>
-        <!--/.feed -->
-        <div class="media post" style="{background: gray;}">
-            <div class="media-body">
-                <h4 class="media-heading">Cargando más elementos
-                    <img class="pull-rigth" src="http://hero.epa.gov/resources/images/ajax_loader_large.gif" width="20">
-                </h4>
-
-            </div>
-        </div>
-        <div class="modal fade" id="entrarModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="entrarLaber">Ingresar a Diloo</h4>
-                    </div>
-                    <div class="modal-body">
-                        <form role="form" id="login_form" action="login" method="POST">
-                        	{% csrf_token %}
-                            <div class="form-group">
-                                <input class="form-control" name="username" id="username" placeholder="Nombre de usuario" >
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña">
-                            </div>
-                            <button type="submit" class="btn btn-primary">Entrar</button>
-                            <a href="#">Regístrate</a>
-                        </form>
-
-                    </div>
-                    <div class="modal-footer">
-                        <a href="#">No recuerdo mi contraseña</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /.container -->
-    {% endblock %}
-    <script src="{% static "js/main.js" %}" type="text/javascript"></script>
+        <!-- /.row -->
+   	</div>
+   	<!-- /.container -->
+        {% endblock %}
+        <script src="{% static "js/main.js" %}" type="text/javascript"></script>
 </body>
 
 </html>
