@@ -73,7 +73,8 @@ def logout(request):
 
 
 def register(request):
-	context = RequestContext(request)
+    context = RequestContext(request)
+
     if request.method == 'POST':
     	form = UserForm(data=request.POST)
         if form.is_valid():
@@ -82,3 +83,4 @@ def register(request):
         form = UserForm()
 
     return render_to_response("registrar.html", {'form': form}, context)
+
