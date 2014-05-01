@@ -9,8 +9,4 @@ class UserForm(forms.ModelForm):
 		model = User
 		fields = ('username', 'password')
 
-class CriticForm(forms.ModelForm):
-	class Meta:
-		model = Critic
-		fields = ('user')
 		
