@@ -1,0 +1,5 @@
+#Comandos de South
+
+python manage.py schemamigration app --auto
+
+python manage.py migrate app
