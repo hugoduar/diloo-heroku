@@ -36,9 +36,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'dilooapp',
+    'app',
     'south',
-    'dilooapp.templatetags'
+    'app.templatetags'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -88,8 +88,8 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
-    os.path.join(BASE_DIR, 'dilooapp/static'),
+    os.path.join(BASE_DIR, 'app/static'),
 )
 TEMPLATE_DIRS = {
-     os.path.join(BASE_DIR, 'dilooapp/templates'),
+     os.path.join(BASE_DIR, 'app/templates'),
 }
