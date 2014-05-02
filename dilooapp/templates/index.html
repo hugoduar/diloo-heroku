@@ -1,48 +1,64 @@
-{% extends "base.html" %} {%block sidebar %} {% for category in categories %}
-<li>
-    <a href="category/{{category.id}}" class="list-group-item-diloo sidebar-element active-diloo-1">
-        <img src="{{category.image}}" height="40" />{{category.name}}</a>
-</li>
-{% endfor %} {% endblock %} {%block feed %} {% if user.is_active %}
-<div id="feed-publico" class="col-sm-8 col-md-6 feed">
-    <h1>¿Qué ocurre?</h1>
-    <div class="media post">
-        <a class="pull-left" href="#">
-            <img class="media-object img-rounded" src="#" width="50" height="50">
-        </a>
-        <div class="media-body">
-            <h4 class="media-heading">Crítica de prueba</h4>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, quis, mollitia delectus itaque ipsam excepturi doloremque dolorum perspiciatis velit in qui placeat quas inventore possimus a reiciendis odio earum totam?
+{% extends "base.html" %} {%block feed %}
+<div id="feed-publico" class="col-sm-8 col-md-4 feed">
+    <div class="jumbotron">
+        <h2>Entrar a Diloo</h2>
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#registro" data-toggle="tab">Regístrarme</a>
+            </li>
+            <li><a href="#entrar" data-toggle="tab">Entrar</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="registro">
+                <br>
+                <form role="form" id="register_form" action="register" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input class="form-control" name="username" id="username" placeholder="Nombre de usuario">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="password1" id="password1" placeholder="Contraseña">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="password2" id="password2" placeholder="Repetir contraseña">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Entrar</button>
+                </form>
+            </div>
+            <div class="tab-pane" id="entrar">
+                <br>
+                <form role="form" id="register_form" action="login" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input class="form-control" name="username" id="username" placeholder="Nombre de usuario">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Entrar</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
 
-<div id="feed-privado" class="col-sm-8 col-md-6 feed">
-    <h1>Personalizado</h1>
-    <div class="media post">
-        <a class="pull-left" href="#">
-            <img class="media-object img-rounded" src="#" width="50" height="50">
-        </a>
-        <div class="media-body">
-            <h4 class="media-heading">Crítica de prueba 2</h4>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, consequuntur, maiores, cum reprehenderit inventore fugiat minima debitis eius recusandae et ut laborum quas quaerat hic magni adipisci voluptatibus rerum aliquam.
+<div id="feed-privado" class="hero-unit col-sm-8 col-md-8 feed">
+    <div class="jumbotron">
+        {% for review in reviews %}
+        <div class="media post" style="{background: gray;position: absolute; bottom: 0;}">
+            <div class="media post">
+                <a class="pull-left" href="#">
+                    <img class="media-object img-rounded" src="{{ review.critic.image }}" width="50" height="50">
+                </a>
+                <div class="media-body">
+                    <h4 class="media-heading">{{ review.title }}</h4>
+                    {{ review.content }}
+                </div>
+            </div>
         </div>
+        {% endfor %}
     </div>
 </div>
-{% else %}
-<div id="feed-publico" class="col-sm-8 col-md-10 col-md-offset-1 feed">
-    <h1>¿Qué ocurre?</h1>
-    <div class="media post">
-        <a class="pull-left" href="#">
-            <img class="media-object img-rounded" src="#" width="50" height="50">
-        </a>
-        <div class="media-body">
-            <h4 class="media-heading">Crítica de prueba</h4>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, dolorum, magni officiis esse quod quam quos asperiores assumenda illum adipisci nostrum delectus excepturi reprehenderit cumque laboriosam vero doloremque labore in?
-        </div>
-    </div>
-</div>
-{% endif %}
 <!-- <div class="media post" style="{background: gray;position: absolute; bottom: 0;}">
     <div class="media-body">
         <h4 class="media-heading">Cargando más elementos

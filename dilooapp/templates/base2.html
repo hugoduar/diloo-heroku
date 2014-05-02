@@ -32,7 +32,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                
+                <button id="btn_sidebar" type="button" class="btn-diloo navbar-btn navbar-nav" data-toggle="collapse">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </button>
                 {% block logo %}
                 <a class="nav navbar-nav" href="#">
                     <img id="logo" class="navbar-brand" src="{% static "img/logo.png"%}"/>
@@ -40,7 +42,7 @@
                 {% endblock %}
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <form class="navbar-form navbar-right" role="search" action="/search" method="GET">
+                <form class="navbar-form navbar-left" role="search" action="/search" method="GET">
                     <div class="form-group">
                         <input type="text" class="form-control input-rounded" placeholder="Buscar" size="60"></input>
                         <button type="submit" class="btn btn-diloo input-rounded">
@@ -66,10 +68,11 @@
                     </li>
                 </ul>
                 <a href="#">
+
                     <img style="float:right" src="#" class="img-circle" width="50" height="50">
                 </a>
                 {% else %}
-                
+                <button type="button" class="btn-diloo navbar-btn navbar-right" data-toggle="modal" data-target="#entrarModal">Entrar</button>
                 {% endif %} {% endblock %}
             </div>
         </div>
