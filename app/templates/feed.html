@@ -1,22 +1,4 @@
-{% extends "base.html" %} {% block user%}
-<ul class="nav navbar-nav navbar-right">
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>
-        <ul class="dropdown-menu">
-            <li><a href="#">Perfil</a>
-            </li>
-            <li><a href="#">Configuración</a>
-            </li>
-            <li class="divider"></li>
-            <li><a href="/logout">Salir</a>
-            </li>
-        </ul>
-    </li>
-</ul>
-<a href="#">
-    <img style="float:right" src="{{ critic.image }}" class="img-circle" width="50" height="50">
-</a>
-{% endblock %} {%block sidebar %} {% for category in categories %}
+{% extends "base.html" %} {%block sidebar %} {% for category in categories %}
 <li>
     <a href="category/{{category.id}}" class="list-group-item-diloo sidebar-element active-diloo-1">
         <img src="{{category.image}}" height="40" />{{category.name}}</a>
@@ -28,7 +10,7 @@
     <h1>¿Qué ocurre?</h1>
     {% for review in reviews %}
     <div class="media post">
-        <a class="pull-left" href="#">
+        <a class="pull-left" href="/p/{{review.critic}}">
 
             <img class="media-object img-rounded" src="{{ review.critic.image }}" width="50" height="50">
         </a>
@@ -80,4 +62,3 @@
     </div>
 </div> -->
 {% endblock %}
-

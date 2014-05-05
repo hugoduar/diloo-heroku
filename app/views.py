@@ -1,6 +1,7 @@
 from django.shortcuts import render, render_to_response
 from django.template import RequestContext
 from django.http import HttpResponseRedirect, HttpResponse
+from django.db.models import Q
 
 from app.models import Category, Review, Critic
 from app.forms import UserForm, CriticForm
@@ -10,6 +11,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 # Create your views here.
 
 
@@ -22,10 +24,10 @@ def main(request):
     if request.user.is_active:
         return HttpResponseRedirect('/feed')
     else:
-        reviews = Review.objects.all()
+        reviews = Review.objects.all()[:5]
         return render_to_response("index.html", {"reviews": reviews, "user_form":user_form, "critic_form":critic_form}, RequestContext(request)) 
 
-@login_required(login_url='/login') 
+@login_required(login_url='/login')	
 def feed(request):
     context = RequestContext(request)
     categories = Category.objects.all()
@@ -33,8 +35,8 @@ def feed(request):
     personal_reviews = Review.objects.all()
     if request.user.is_active:
         print request.user
-        critic = Critic.objects.get(user=request.user)
-        personal_reviews = Review.objects.all()
+    	critic = Critic.objects.get(user=request.user)
+    	personal_reviews = Review.objects.all()
     return render_to_response("feed.html", {'categories': categories, 'reviews': reviews, 'user': request.user, 'personal_reviews': personal_reviews, 'critic': critic}, context)
 
 
@@ -55,9 +57,9 @@ def login(request):
             print "Invalid login details: {0}, {1}".format(username, password)
             return render_to_response("login_page.html", {"error": True, "username": username}, context)
     elif request.method == 'GET' and user is None: 
-        return render_to_response("login_page.html", {"error": False}, context)
+		return render_to_response("login_page.html", {"error": False}, context)
     else:
-        return render_to_response("login_page.html", {"error": True}, context)
+    	return render_to_response("login_page.html", {"error": True}, context)
 
 
 def logout(request):
@@ -70,7 +72,7 @@ def register(request):
     username = request.POST['username']
     password = request.POST['password1']
     if request.method == 'POST':
-        form = UserForm(data=request.POST)
+    	form = UserForm(data=request.POST)
         critic_form = CriticForm()
         if form.is_valid():
             user = form.save()
@@ -80,7 +82,7 @@ def register(request):
             critic = critic_form.save(commit=False)
 
             critic.user = user
-            
+            critic.image = 'http://tlprojects.com/ajax_local/pics/1.jpg'
             critic.save()
             user2 = authenticate(username=username, password=password)        
             if user2 is not None:
@@ -96,6 +98,59 @@ def register(request):
     else:
         form = UserForm()
         return HttpResponseRedirect('/')
+
+def profile(request, username):
+    context = RequestContext(request)
+    exists = False
+    user = None
+    try:
+        user = User.objects.get(username=username)
+    except:
+        pass
+    critic = None
+    t_reviews = 0
+    if user is not None:
+        exists = True
+        critic = Critic.objects.get(user=user)
+        reviews = Review.objects.filter(critic=critic)
+        t_reviews = len(reviews)
+
+
+    return render_to_response("profile.html", {"critic": critic, "exists": exists, "reviews": reviews, "t_reviews":t_reviews}, context)
+
+@login_required(login_url='/login')
+def user_profile(request):
+    context = RequestContext(request)
+    critic = Critic.objects.get(user=request.user)
+    return render_to_response("user_profile.html", {"critic": critic}, context)
+
+
+def user_profile_configuration(request):
+    context = RequestContext(request)
+    critic = Critic.objects.get(user=request.user)
+    return render_to_response("user_profile_configuration.html", {"critic": critic}, context)
+
+
+def search(request):
+    text = ""
+    try:
+        text = request.GET['text']
+    except:
+        pass
+    results = None
+    reviews = Review.objects.filter(Q(title__icontains=text) | Q(content__icontains=text))
+
+    users = User.objects.filter(Q(username__icontains=text))
+    critics = []
+
+    for u in users:
+        critics.append(Critic.objects.get(user=u))
+    return render_to_response("search.html", {"reviews": reviews, "critics": critics})
+
+
+
+
+
 
 
 
