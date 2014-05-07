@@ -1,6 +1,9 @@
 {% extends "base.html" %} {%block feed %}
+<<<<<<< HEAD
 
 {% if reviews %}
+=======
+>>>>>>> e64198d1ec8ab66b34da6f833eb5cba7f22bea9f
 <div id="feed-publico" class="col-sm-8 col-md-6 feed">
     <h1>Críticas</h1>
     {% for review in reviews %}
@@ -14,30 +17,45 @@
             {{ review.content }}
         </div>
     </div>
+<<<<<<< HEAD
 
     {% endfor %}
 </div>
 {% endif %}
 
 {% if critics %}
+=======
+    {% endfor %}
+</div>
+>>>>>>> e64198d1ec8ab66b34da6f833eb5cba7f22bea9f
 <div id="feed-publico" class="col-sm-8 col-md-6 feed">
     <h1>Personas</h1>
     {% for f_critic in critics %}
     <div class="media post">
         <a class="pull-left" href="/p/{{f_critic}}">
+<<<<<<< HEAD
             <img class="media-object img-rounded" src="{{ f_critic.image }}" width="80" height="80">
         </a>
         <div class="media-body">
         	<h3><a href="/p/{{ f_critic.user }}">{{f_critic.display_name}}</a></h3>
         	<p>Lectores: {{ f_critic.readers.count }}</p>
             <button class="btn btn-primary" onclick="javascript:alert('¿Deseas seguir a {{f_critic.display_name}}?')">Seguir</button>
+=======
+            <img class="media-object img-rounded" src="{{ f_critic.image }}" width="50" height="50">
+        </a>
+        <div class="media-body">
+            <button>Seguir</button>
+>>>>>>> e64198d1ec8ab66b34da6f833eb5cba7f22bea9f
         </div>
     </div>
     {% endfor %}
 </div>
+<<<<<<< HEAD
 {% endif %}
 
 {% if not critics and not reviews%}
 <h1>No se encontraron resultados</h1>
 {% endif %}
+=======
+>>>>>>> e64198d1ec8ab66b34da6f833eb5cba7f22bea9f
 {% endblock %}

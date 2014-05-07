@@ -1,16 +1,28 @@
+<<<<<<< HEAD
 {% extends "base.html"%} {% load humanize %} {% block content %}
+=======
+{% extends "base.html" %} {% block content %}
+
+>>>>>>> e64198d1ec8ab66b34da6f833eb5cba7f22bea9f
 <div class="container">
     <div class="row">
         {% if exists %}
         <div id="feed-publico" class="col-sm-8 col-md-4 feed">
             <div class="jumbotron">
                 <a href="#" class="thumbnail">
+<<<<<<< HEAD
                     <img src="{{ f_critic.image }}" data-src="holder.js/100x100" alt="...">
                 </a>
                 <h2> <a href="/p/{{f_critic}}">@{{f_critic}}</a>
                 </h2>
                 <p>Se unió: {{f_critic.pub_date|naturaltime}}</p>
                 Críticas: {{reviews.count}}
+=======
+                    <img src="{{ critic.image }}" data-src="holder.js/100x100" alt="...">
+                </a>
+                <h2> <a href="/p/{{critic}}">@{{critic}}</a></h2>
+                Críticas: {{t_reviews}}
+>>>>>>> e64198d1ec8ab66b34da6f833eb5cba7f22bea9f
             </div>
         </div>
         <div id="feed-privado" class="hero-unit col-sm-8 col-md-8 feed">
@@ -22,9 +34,13 @@
                             <img class="media-object img-rounded" src="{{ review.critic.image }}" width="50" height="50">
                         </a>
                         <div class="media-body">
+<<<<<<< HEAD
                             <h4 class="media-heading">{{ review.title }}
                                 <small>{{review.pub_date|naturaltime}}</small>
                             </h4>
+=======
+                            <h4 class="media-heading">{{ review.title }}</h4>
+>>>>>>> e64198d1ec8ab66b34da6f833eb5cba7f22bea9f
                             {{ review.content }}
                         </div>
                     </div>

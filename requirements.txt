@@ -1,11 +1,26 @@
+<<<<<<< HEAD
 Django==1.6.3
+=======
+Django==1.6.2
+Fabric==1.8.3
+Pillow==2.4.0
+>>>>>>> e64198d1ec8ab66b34da6f833eb5cba7f22bea9f
 South==0.8.4
 dj-database-url==0.3.0
 dj-static==0.0.5
 django-toolbelt==0.0.1
+<<<<<<< HEAD
 gunicorn==18.0
 mongoengine==0.8.7
 psycopg2==2.5.2
+=======
+ecdsa==0.11
+gunicorn==18.0
+mongoengine==0.8.7
+paramiko==1.12.3
+psycopg2==2.5.2
+pycrypto==2.6.1
+>>>>>>> e64198d1ec8ab66b34da6f833eb5cba7f22bea9f
 pymongo==2.7
 pystache==0.5.3
 static==1.0.2

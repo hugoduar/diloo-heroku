@@ -103,6 +103,7 @@ def profile(request, username):
     context = RequestContext(request)
     exists = False
     user = None
+<<<<<<< HEAD
     critic = None
     try:
         user = User.objects.get(username=username)
@@ -119,6 +120,22 @@ def profile(request, username):
 
 
     return render_to_response("profile.html", {"critic":critic, "f_critic": f_critic, "exists": exists, "reviews": reviews}, context)
+=======
+    try:
+        user = User.objects.get(username=username)
+    except:
+        pass
+    critic = None
+    t_reviews = 0
+    if user is not None:
+        exists = True
+        critic = Critic.objects.get(user=user)
+        reviews = Review.objects.filter(critic=critic)
+        t_reviews = len(reviews)
+
+
+    return render_to_response("profile.html", {"critic": critic, "exists": exists, "reviews": reviews, "t_reviews":t_reviews}, context)
+>>>>>>> e64198d1ec8ab66b34da6f833eb5cba7f22bea9f
 
 @login_required(login_url='/login')
 def user_profile(request):
@@ -126,7 +143,11 @@ def user_profile(request):
     critic = Critic.objects.get(user=request.user)
     return render_to_response("user_profile.html", {"critic": critic}, context)
 
+<<<<<<< HEAD
 @login_required(login_url='/login')
+=======
+
+>>>>>>> e64198d1ec8ab66b34da6f833eb5cba7f22bea9f
 def user_profile_configuration(request):
     context = RequestContext(request)
     critic = Critic.objects.get(user=request.user)
@@ -135,7 +156,11 @@ def user_profile_configuration(request):
 
 def search(request):
     text = ""
+<<<<<<< HEAD
     reviews = []
+=======
+    results = None
+>>>>>>> e64198d1ec8ab66b34da6f833eb5cba7f22bea9f
     critics = []
     try:
         text = request.GET['text']

@@ -7,6 +7,10 @@ https://docs.djangoproject.com/en/1.6/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
+<<<<<<< HEAD
+=======
+
+>>>>>>> e64198d1ec8ab66b34da6f833eb5cba7f22bea9f
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -19,7 +23,11 @@ import dj_database_url
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+<<<<<<< HEAD
 SECRET_KEY = 'c*ke_xvlnlh_-5mu10mabu18-!bq^9lvufbx1*hm&kg)ms46ll'
+=======
+SECRET_KEY = '4tai=ja=n=6^lqd4+0m=7$*u$+*ci#2t#tnxsy8&8-7hq6(ofn'
+>>>>>>> e64198d1ec8ab66b34da6f833eb5cba7f22bea9f
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -41,7 +49,11 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+<<<<<<< HEAD
     'south', 
+=======
+    'app.templatetags',
+>>>>>>> e64198d1ec8ab66b34da6f833eb5cba7f22bea9f
 )
 
 MIDDLEWARE_CLASSES = (
@@ -76,7 +88,11 @@ DATABASES['default'] =  dj_database_url.config()
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
+<<<<<<< HEAD
 LANGUAGE_CODE = 'en-mx'
+=======
+LANGUAGE_CODE = 'en-us'
+>>>>>>> e64198d1ec8ab66b34da6f833eb5cba7f22bea9f
 
 TIME_ZONE = 'UTC'
 
@@ -97,6 +113,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
     os.path.join(BASE_DIR, 'app/static'),
 )
+<<<<<<< HEAD
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 # import os
 # BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -176,3 +193,29 @@ STATICFILES_DIRS = (
 # TEMPLATE_DIRS = {
 #      os.path.join(BASE_DIR, 'app/templates'),
 # }
+=======
+
+# try:
+#     from local_settings import * 
+# except ImportError:
+#     pass
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> e64198d1ec8ab66b34da6f833eb5cba7f22bea9f
