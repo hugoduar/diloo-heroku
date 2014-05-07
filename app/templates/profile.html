@@ -1,7 +1,4 @@
-{% extends "base.html" %} 
-{% load humanize %}
-{% block content %}
-
+{% extends "base.html"%} {% load humanize %} {% block content %}
 <div class="container">
     <div class="row">
         {% if exists %}
@@ -10,7 +7,8 @@
                 <a href="#" class="thumbnail">
                     <img src="{{ f_critic.image }}" data-src="holder.js/100x100" alt="...">
                 </a>
-                <h2> <a href="/p/{{f_critic}}">@{{f_critic}}</a></h2>
+                <h2> <a href="/p/{{f_critic}}">@{{f_critic}}</a>
+                </h2>
                 <p>Se unió: {{f_critic.pub_date|naturaltime}}</p>
                 Críticas: {{reviews.count}}
             </div>
@@ -24,7 +22,9 @@
                             <img class="media-object img-rounded" src="{{ review.critic.image }}" width="50" height="50">
                         </a>
                         <div class="media-body">
-                            <h4 class="media-heading">{{ review.title }} <small>{{review.pub_date|naturaltime}}</small></h4>
+                            <h4 class="media-heading">{{ review.title }}
+                                <small>{{review.pub_date|naturaltime}}</small>
+                            </h4>
                             {{ review.content }}
                         </div>
                     </div>
