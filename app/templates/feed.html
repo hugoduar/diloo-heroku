@@ -3,14 +3,16 @@
     <a href="category/{{category.id}}" class="list-group-item-diloo sidebar-element active-diloo-1">
         <img src="{{category.image}}" height="40" />{{category.name}}</a>
 </li>
+
+
 {% endfor %} {% endblock %} {%block feed %} {% if user.is_active %}
 <div id="feed-publico" class="col-sm-8 col-md-6 feed">
     <h1>¿Qué ocurre?</h1>
     {% for review in reviews %}
     <div class="media post">
-        <a class="pull-left" href="#">
-        
-            <img class="media-object img-rounded" src="#" width="50" height="50">
+        <a class="pull-left" href="/p/{{review.critic}}">
+
+            <img class="media-object img-rounded" src="{{ review.critic.image }}" width="50" height="50">
         </a>
         <div class="media-body">
             <h4 class="media-heading">{{ review.title }}</h4>
@@ -25,8 +27,8 @@
     {% for preview in personal_reviews %}
     <div class="media post">
         <a class="pull-left" href="#">
-        
-            <img class="media-object img-rounded" src="#" width="50" height="50">
+
+            <img class="media-object img-rounded" src="{{ preview.critic.image }}" width="50" height="50">
         </a>
         <div class="media-body">
             <h4 class="media-heading">{{ preview.title }}</h4>

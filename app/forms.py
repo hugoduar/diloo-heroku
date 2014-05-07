@@ -24,7 +24,7 @@ class UserForm(forms.ModelForm):
 
    	class Meta:
    		model = User
-   		fields = ("username",)
+   		fields = ("username", )
 
    	def clean_username(self):
      
@@ -57,11 +57,9 @@ class UserForm(forms.ModelForm):
 			user.save()
 		return user
 
-
 class CriticForm(forms.ModelForm):
 	class Meta:
    		model = Critic
-   		fields = ("user",) 
 
 
 
