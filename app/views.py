@@ -133,18 +133,19 @@ def user_profile_configuration(request):
 
 def search(request):
     text = ""
+    results = None
+    critics = []
     try:
         text = request.GET['text']
+        reviews = Review.objects.filter(Q(title__icontains=text) | Q(content__icontains=text))
+        users = User.objects.filter(Q(username__icontains=text))
+
+        for u in users:
+            critics.append(Critic.objects.get(user=u))
     except:
         pass
-    results = None
-    reviews = Review.objects.filter(Q(title__icontains=text) | Q(content__icontains=text))
-
-    users = User.objects.filter(Q(username__icontains=text))
-    critics = []
-
-    for u in users:
-        critics.append(Critic.objects.get(user=u))
+    
+    
     return render_to_response("search.html", {"reviews": reviews, "critics": critics})
 
 
