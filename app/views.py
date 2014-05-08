@@ -103,7 +103,6 @@ def profile(request, username):
     context = RequestContext(request)
     exists = False
     user = None
-<<<<<<< HEAD
     critic = None
     try:
         user = User.objects.get(username=username)
